@@ -30,7 +30,7 @@ var numberOfGuessesLeft =[];
 
 //This is to create random words
 var currentWord = words[Math.floor((Math.random() * 4))];
-
+console.log('current word: ', currentWord)
 //Note: This is a function that creates dashes by doing a loop to the words array, so that
 //it will read the length of the actual word such as cat and put 3 dashes.
 function createDashes () {
@@ -47,6 +47,22 @@ createDashes();
 //Note: The user needs to press a key and it needs to be detected
 document.onkeyup = function (event){
         console.log(event.key);
+        var userGuess = event.key;
+        if (currentWord.indexOf(userGuess) > -1) {
+            console.log('it exists');
+
+            for( var i=0; i<currentWord.length; i++){
+                if (userGuess === currentWord[i]) {
+                    dashes[i]= userGuess;
+                } else {
+                    wrongGuess[i]=userGuess;
+                }
+            }
+            console.log(dashes)
+            console.log(wrongGuess)
+        }
+        document.getElementById("wordHolder").innerHTML = dashes;
+        document.getElementById("wrongGuess").innerHTML = " Wrong Guess" + wrongGuess;
 }
 
 
@@ -66,7 +82,12 @@ document.onkeyup = function (event){
 //3.) After the user presses the key if it is a correct letter it needs to go in the wordHolder section and replace the dash.
       //else the letter needs to go in the wrong guess section. It also needs to show up on the browser.
 
+     // How to split a word into an array and do a loop on it. Easier way is to create a syntax to treat a string (ex cat) as an array and then you can make 
+     // a loop for that.
+
 //4.)The number of Guesses should be set to 10.
+
+
 
 //5.)When the user presses a key, the number of Guesses remaining should go down by 1. If there are no more guesses, then 
 //it should reset.
