@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,13 +57,13 @@ document.onkeyup = function (event){
             for( var i=0; i<currentWord.length; i++){
                 if (userGuess === currentWord[i]) {
                     dashes[i]= userGuess;
-                } else {
-                    wrongGuess.push(userGuess);
-                    alert(wrongGuess);
-                }
+                } 
             }
             console.log(dashes)
+            //console.log(wrongGuess)
             
+        } else {
+            wrongGuess.push(userGuess);
         }
         document.getElementById("wordHolder").innerHTML = dashes;
         document.getElementById("wrongGuess").innerHTML = " Wrong Guess" + wrongGuess;
@@ -71,12 +72,7 @@ document.onkeyup = function (event){
 
 //This is where the references will be
 
-    var directionsText = document.getElementById("directionsText");
-    var numberOfGuessesLeft = document.getElementById("numberOfGuessesLeft");
-    var wordHolderText = document.getElementById("wordHolder");
-    var winsText = document.getElementById("wins");
-    var lossesText = document.getElementById("losses");
-    var wrongGuess = document.getElementById("wrongGuess");
+    
 
 
 //These are functions? IF ELSE STATEMENTS - to play the game
