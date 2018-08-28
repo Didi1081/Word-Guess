@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +46,7 @@ createDashes();
 //console.log(dashes)
 
 //Note: The user needs to press a key and it needs to be detected
+
 document.onkeyup = function (event){
         console.log(event.key);
         var userGuess = event.key;
@@ -55,11 +57,12 @@ document.onkeyup = function (event){
                 if (userGuess === currentWord[i]) {
                     dashes[i]= userGuess;
                 } else {
-                    wrongGuess[i]=userGuess;
+                    wrongGuess.push(userGuess);
+                    alert(wrongGuess);
                 }
             }
             console.log(dashes)
-            console.log(wrongGuess)
+            
         }
         document.getElementById("wordHolder").innerHTML = dashes;
         document.getElementById("wrongGuess").innerHTML = " Wrong Guess" + wrongGuess;
